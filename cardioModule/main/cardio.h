@@ -3,7 +3,7 @@
 
 void gather();
 long process(unsigned long pulse);
-void export(unsigned long result, unsigned long time);
+void xprt(unsigned long result, unsigned long time);
 
 #endif // Cardio_h
 

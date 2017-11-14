@@ -3,6 +3,7 @@
 int dly;
 
 void setup() {
+  Serial.begin(9600);
   int led_0;
   int led_1;
   int led_2;

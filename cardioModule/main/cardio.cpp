@@ -1,33 +1,38 @@
 #include "cardio.h"
+#include <Arduino.h>
+#include <Time.h>
 
 void gather(){
-  unsigned long time = millis();
+  unsigned long tim = millis();
   unsigned long pulseValue = analogRead(0);
-  println(pulseValue);
+  unsigned long result;
+  
   result = process(pulseValue);
-
-  export(result, time);
+  
+  xprt(result, tim);
   
   delay(50);
 }
 
 long process(unsigned long pulseValue){
-  unsigned long thresholdValue =/*Valeur à déterminer*/;
-  unsigned long time, prvTime;
+  unsigned long thresholdValue = 1000;
+  unsigned long tim, prvTime, prvVal, result;
   if(pulseValue > thresholdValue){
     if(prvVal <= thresholdValue){
-      time = millis();
-      if(time > (prvTime + 200)){
-        return ((1000*60) / (time - prvTime));
-        prvTime = time;
+      tim = millis();
+      if(tim > (prvTime + 200)){
+        result = ((1000*60) / (tim - prvTime));
+        prvTime = tim;
       }
     }
   }
   prvVal = pulseValue;
+  return result;
 }
 
-void export(unsigned long result, unsigned long time){
-  Serial.print(time);
+void xprt(unsigned long result, unsigned long tim){
+  Serial.print(tim);
+  Serial.print(' ');
   Serial.println(result);
 }
 
