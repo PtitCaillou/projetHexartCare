@@ -32,7 +32,7 @@ long process(unsigned long pulseValue){
 
 void xprt(unsigned long result, unsigned long tim){
   Serial.print(tim);
-  Serial.print(' ');
-  Serial.println(result);
+  Serial.print(',');
+  Serial.print(result);
 }
 

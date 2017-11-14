@@ -1,5 +1,5 @@
 import processing.serial.*;
-//declare
+
 PrintWriter output;
 Serial udSerial;
 
@@ -8,17 +8,17 @@ void setup() {
   output = createWriter ("Battements.csv");
 }
 
-  void draw() {
-    if (udSerial.available() > 0) {
-      String SenVal = udSerial.readString();
-      if (SenVal != null) {
-        output.println(SenVal);
-      }
+void draw() {
+  if (udSerial.available() > 0) {
+    String SenVal = udSerial.readString();
+    if (SenVal != null) {
+      output.println(SenVal);
     }
   }
+}
 
-  void keyPressed(){
-    output.flush();
-    output.close();
-    exit(); 
-  }
+void keyPressed(){
+  output.flush();
+  output.close();
+  exit(); 
+}
