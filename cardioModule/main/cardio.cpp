@@ -2,37 +2,34 @@
 #include <Arduino.h>
 #include <Time.h>
 
-long tempsPrecedent = 0;
+long prvVal = 0;
  
 void gather() {
   unsigned long tim = millis();
   unsigned long pulseValue = analogRead(0);
   unsigned long result;
-  //Serial.println(pulseValue);
-  result = Bite(pulseValue);
+  result = calcPulse(pulseValue);
   xprt(result, tim);
   delay(400);
 }
 
-unsigned long Bite(unsigned long valeurActuelle) {
-  int valeurSeuil, valeurPrecedente = 0;
-  long tempsDetection, result;
+unsigned long calcPulse(unsigned long actualValue) {
+  int thresholdValue, prvVal = 0;
+  long detectionVal, result, detectionTime;
 
-  valeurActuelle = analogRead(0);
-  valeurSeuil = 20;
+  actualValue = analogRead(0);
+  thresholdValue = 20;
 
-  if (valeurActuelle > valeurSeuil) {  // on est dans la zone max
-    if (valeurPrecedente <= valeurSeuil) {  // est-ce qu'on vient d'y entrer?
-      tempsDetection = millis();
-      if (tempsDetection > (tempsPrecedent + 200)){  // ce n'est pas seulement du bruit?
-        result = (1000.0 * 60.0) / (tempsDetection - tempsPrecedent);
-        //Serial.println( (1000.0 * 60.0) / (tempsDetection - tempsPrecedent),0);
-        tempsPrecedent = tempsDetection;
+  if (actualValue > thresholdValue) {  
+    if (prvVal <= thresholdValue) { 
+      detectionTime = millis();
+      if (detectionTime > (prvVal + 200)){  
+        result = (1000.0 * 60.0) / (detectionTime - prvVal);
+        prvVal = detectionTime;
       }
     }
   }
-
-  valeurPrecedente = valeurActuelle;
+  prvVal = actualValue;
   return result;
 }
 

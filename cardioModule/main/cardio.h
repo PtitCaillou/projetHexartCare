@@ -2,7 +2,7 @@
 #define Cardio_h
 
 void gather();
-void xprt(unsigned long result, unsigned long time);
-unsigned long Bite(unsigned long ValeurActuelle);
+void xprt(unsigned long result, unsigned long tim);
+unsigned long calcPulse(unsigned long actualValue);
 #endif // Cardio_h
 
