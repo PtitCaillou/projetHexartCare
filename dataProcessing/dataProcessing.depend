@@ -1,0 +1,24 @@
+# depslib dependency file v1.0
+1510739126 source:d:\dowload\boulot\projethexartcare\dataprocessing\main.c
+	<stdio.h>
+	<stdlib.h>
+	"data.h"
+	"menu.h"
+	"processing.h"
+
+1510736663 d:\dowload\boulot\projethexartcare\dataprocessing\data.h
+
+1510560382 d:\dowload\boulot\projethexartcare\dataprocessing\menu.h
+
+1510560382 d:\dowload\boulot\projethexartcare\dataprocessing\processing.h
+
+1510560236 source:d:\dowload\boulot\projethexartcare\dataprocessing\menu.c
+
+1510560358 source:d:\dowload\boulot\projethexartcare\dataprocessing\processing.c
+
+1510742984 source:d:\dowload\boulot\projethexartcare\dataprocessing\data.c
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	"data.h"
+

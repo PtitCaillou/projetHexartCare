@@ -6,16 +6,16 @@ void gather(){
   unsigned long tim = millis();
   unsigned long pulseValue = analogRead(0);
   unsigned long result;
+  //Serial.println(pulseValue);
+  //result = process(pulseValue);
   
-  result = process(pulseValue);
+  //xprt(result, tim);
   
-  xprt(result, tim);
-  
-  delay(50);
+  delay(100);
 }
 
 long process(unsigned long pulseValue){
-  unsigned long thresholdValue = 1000;
+  unsigned long thresholdValue = 200;
   unsigned long tim, prvTime, prvVal, result;
   if(pulseValue > thresholdValue){
     if(prvVal <= thresholdValue){
@@ -34,5 +34,6 @@ void xprt(unsigned long result, unsigned long tim){
   Serial.print(tim);
   Serial.print(',');
   Serial.print(result);
+  Serial.println(';');
 }
 
