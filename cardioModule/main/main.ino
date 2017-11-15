@@ -7,7 +7,7 @@ void setup() {
 }
 
 void loop() {
-  if(analogRead(0)>20){
+  if(analogRead(0)>50){
     //Serial.print(counter);
     //Serial.print(" : ");
     //Serial.println("POUL");
@@ -15,10 +15,10 @@ void loop() {
     //while(analogRead(0)!=0){
       //delay(15);
     //}
-    
-    Serial.println(analogRead(0));
-    delay(15);
+    gather();
+    //Serial.println(analogRead(0));
+    //delay(30);
   }
   
-  //gather();
+  //
 }

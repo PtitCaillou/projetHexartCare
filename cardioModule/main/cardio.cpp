@@ -2,38 +2,44 @@
 #include <Arduino.h>
 #include <Time.h>
 
-void gather(){
+long tempsPrecedent = 0;
+ 
+void gather() {
   unsigned long tim = millis();
   unsigned long pulseValue = analogRead(0);
   unsigned long result;
   //Serial.println(pulseValue);
-  //result = process(pulseValue);
-  
-  //xprt(result, tim);
-  
-  delay(100);
+  result = Bite(pulseValue);
+  xprt(result, tim);
+  delay(400);
 }
 
-long process(unsigned long pulseValue){
-  unsigned long thresholdValue = 200;
-  unsigned long tim, prvTime, prvVal, result;
-  if(pulseValue > thresholdValue){
-    if(prvVal <= thresholdValue){
-      tim = millis();
-      if(tim > (prvTime + 200)){
-        result = ((1000*60) / (tim - prvTime));
-        prvTime = tim;
+unsigned long Bite(unsigned long valeurActuelle) {
+  int valeurSeuil, valeurPrecedente = 0;
+  long tempsDetection, result;
+
+  valeurActuelle = analogRead(0);
+  valeurSeuil = 20;
+
+  if (valeurActuelle > valeurSeuil) {  // on est dans la zone max
+    if (valeurPrecedente <= valeurSeuil) {  // est-ce qu'on vient d'y entrer?
+      tempsDetection = millis();
+      if (tempsDetection > (tempsPrecedent + 200)){  // ce n'est pas seulement du bruit?
+        result = (1000.0 * 60.0) / (tempsDetection - tempsPrecedent);
+        //Serial.println( (1000.0 * 60.0) / (tempsDetection - tempsPrecedent),0);
+        tempsPrecedent = tempsDetection;
       }
     }
   }
-  prvVal = pulseValue;
+
+  valeurPrecedente = valeurActuelle;
   return result;
 }
 
-void xprt(unsigned long result, unsigned long tim){
-  Serial.print(tim);
-  Serial.print(',');
-  Serial.print(result);
-  Serial.println(';');
+void xprt(unsigned long result, unsigned long tim) {
+  int form = tim/1000;
+  char toPrint[20];
+  sprintf(toPrint, "%d!%ld;",form, result);
+  Serial.print(toPrint);
 }
 
