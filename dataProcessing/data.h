@@ -3,11 +3,21 @@
 
 typedef struct data data;
 struct data{
-  unsigned long num;
-  unsigned long time;
-  unsigned long beat;
+  int num;
+  char time[20];
+  char beat[20];
 };
 
-void fileManage();
+data *fileManage();
+
+void dataFileOrder(data *chain);
+void dataPulseAscendingWay(data *chain);
+void dataTimeAscendingWay(data *chain);
+void dataPulseDescendingWay(data *chain);
+void dataTimeDescendingWay(data *chain);
+void dataSpecificTime(data *chain);
+void dataAverageInTimeRange(data *chain);
+void dataNumberGathered(data *chain);
+void dataExtremePulse(data *chain);
 
 #endif // DATA_H_INCLUDED

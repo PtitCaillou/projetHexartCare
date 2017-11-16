@@ -6,6 +6,6 @@
 
 int main()
 {
-    fileManage();
+    menu();
     return 0;
 }

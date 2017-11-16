@@ -22,3 +22,30 @@
 	<string.h>
 	"data.h"
 
+1510766657 source:d:\dowload\boulot\c\projethexartcare\dataprocessing\main.c
+	<stdio.h>
+	<stdlib.h>
+	"data.h"
+	"menu.h"
+	"processing.h"
+
+1510825163 d:\dowload\boulot\c\projethexartcare\dataprocessing\data.h
+
+1510819967 d:\dowload\boulot\c\projethexartcare\dataprocessing\menu.h
+
+1510560382 d:\dowload\boulot\c\projethexartcare\dataprocessing\processing.h
+
+1510825200 source:d:\dowload\boulot\c\projethexartcare\dataprocessing\menu.c
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	"data.h"
+
+1510560358 source:d:\dowload\boulot\c\projethexartcare\dataprocessing\processing.c
+
+1510825163 source:d:\dowload\boulot\c\projethexartcare\dataprocessing\data.c
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	"data.h"
+
