@@ -2,38 +2,41 @@
 #include <Arduino.h>
 #include <Time.h>
 
-void gather(){
+long prvVal = 0;
+ 
+void gather() {
   unsigned long tim = millis();
   unsigned long pulseValue = analogRead(0);
   unsigned long result;
-  //Serial.println(pulseValue);
-  //result = process(pulseValue);
-  
-  //xprt(result, tim);
-  
-  delay(100);
+  result = calcPulse(pulseValue);
+  xprt(result, tim);
+  delay(400);
 }
 
-long process(unsigned long pulseValue){
-  unsigned long thresholdValue = 200;
-  unsigned long tim, prvTime, prvVal, result;
-  if(pulseValue > thresholdValue){
-    if(prvVal <= thresholdValue){
-      tim = millis();
-      if(tim > (prvTime + 200)){
-        result = ((1000*60) / (tim - prvTime));
-        prvTime = tim;
+unsigned long calcPulse(unsigned long actualValue) {
+  int thresholdValue, prvVal = 0;
+  long detectionVal, result, detectionTime;
+
+  actualValue = analogRead(0);
+  thresholdValue = 20;
+
+  if (actualValue > thresholdValue) {  
+    if (prvVal <= thresholdValue) { 
+      detectionTime = millis();
+      if (detectionTime > (prvVal + 200)){  
+        result = (1000.0 * 60.0) / (detectionTime - prvVal);
+        prvVal = detectionTime;
       }
     }
   }
-  prvVal = pulseValue;
+  prvVal = actualValue;
   return result;
 }
 
-void xprt(unsigned long result, unsigned long tim){
-  Serial.print(tim);
-  Serial.print(',');
-  Serial.print(result);
-  Serial.println(';');
+void xprt(unsigned long result, unsigned long tim) {
+  int form = tim/1000;
+  char toPrint[20];
+  sprintf(toPrint, "%d!%ld;",form, result);
+  Serial.print(toPrint);
 }
 

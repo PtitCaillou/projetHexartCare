@@ -2,8 +2,7 @@
 #define Cardio_h
 
 void gather();
-long process(unsigned long pulse);
-void xprt(unsigned long result, unsigned long time);
-
+void xprt(unsigned long result, unsigned long tim);
+unsigned long calcPulse(unsigned long actualValue);
 #endif // Cardio_h
 
