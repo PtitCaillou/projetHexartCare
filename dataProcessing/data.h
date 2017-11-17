@@ -1,14 +1,17 @@
 #ifndef DATA_H_INCLUDED
 #define DATA_H_INCLUDED
+#define SIZE 5000
 
 typedef struct data data;
 struct data{
   int num;
-  char time[20];
-  char beat[20];
+  long time;
+  long pulse;
 };
 
 data *fileManage();
+void write(char fileData, int i;);
+void translate(data *toProcess, char tempPulse[SIZE], char tempTime[SIZE]);
 
 void dataFileOrder(data *chain);
 void dataPulseAscendingWay(data *chain);

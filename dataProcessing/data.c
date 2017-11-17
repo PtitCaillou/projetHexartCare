@@ -1,38 +1,18 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-#define SIZE 5000
 #include "data.h"
 
 data *fileManage(){
-  char fileData[SIZE], count;
+  int i = 1, test;
   data *toProcess = malloc(SIZE * sizeof(data));
-  FILE* recData = NULL;
-
-  recData = fopen("../processingModule/main/Battements.csv", "r");
+  FILE* recData = fopen("../processingModule/main/Battements.csv", "r");
 
   if(recData != NULL){
-    int a=0;
-    for(int i=0; fgets(fileData, 20, recData) != NULL; i++){
-      a=0;
-      for(int j=0; j<strlen(fileData) && j < 20; j++){
-        toProcess[i].num = i + 1;
-        if(a==0){
-          toProcess[i].time[j] = fileData[j];
-          if(fileData[j]=='!'){
-            toProcess[i].time[j] = ' ';
-            a=1;
-          }
-        }
-        if(a==1){
-          toProcess[i].beat[j-(strlen(toProcess[i].time))] = fileData[j];
-          if(fileData[j]==';'){
-            toProcess[i].beat[j-(strlen(toProcess[i].time))] = ' ';
-          }
-        }
-      }
-      count++;
-    }
+     while ((test = fscanf(recData, "%ld!%ld", &(toProcess[i]).time, &(toProcess[i]).pulse)) != 0 && test != EOF) {
+        toProcess[i].num = i;
+        i++;
+     }
   }
   else{
     printf("ERROR\n");
@@ -42,11 +22,11 @@ data *fileManage(){
 }
 
 void dataFileOrder(data *chain){
-  for(int i=0; i<SIZE; i++){
+  for(int i=1; i<SIZE; i++){
     if(chain[i].num != NULL){
-      printf("\tNUM : %d\t", chain[i].num);
-      printf("TIME : %s\t", chain[i].time);
-      printf("BEAT : %s", chain[i].beat);
+      printf("\tNUM : %d \t", chain[i].num);
+      printf("TIME : %ld\t", chain[i].time);
+      printf("PULSE : %ld\n", chain[i].pulse);
     }
   }
 }
@@ -78,22 +58,29 @@ void dataAverageInTimeRange(data *chain){
 void dataNumberGathered(data *chain){
   for(int i=0; i<SIZE; i++){
     if(chain[i].num == NULL){
-      printf("\nThere are %d data gathered.\n\n\n", i+1);
+      printf("\nThere are %d data gathered.\n\n\n", i-1);
       break;
     }
   }
 }
 
 void dataExtremePulse(data *chain){
-  int maxPulse, minPulse;
+  data maxPulse = {NULL, NULL, NULL}, minPulse = {NULL, NULL, chain[1].pulse};
 
-  for(int i=0; i<SIZE; i++){
-    if(chain[i].num != NULL){
-      if(chain[i].num > maxPulse){
-        maxPulse =
-      }
-      break;
+  for(int i=1; i<SIZE; i++){
+    if(chain[i].pulse > maxPulse.pulse){
+      maxPulse.num = chain[i].num;
+      maxPulse.pulse = chain[i].pulse;
+      maxPulse.time = chain[i].time;
+    }
+    if(chain[i].pulse < minPulse.pulse && chain[i].pulse != 0 && chain[i].pulse != NULL){
+      //printf("%ld plus grand que %ld\n", chain[i].pulse, maxPulse.pulse);
+      minPulse.num = chain[i].num;
+      minPulse.pulse = chain[i].pulse;
+      minPulse.time = chain[i].time;
     }
   }
+  printf("Minimum :\t time : %ld s\tpulse : %ld\n", minPulse.time, minPulse.pulse);
+  printf("Maximum :\t time : %ld s\tpulse : %ld\n", maxPulse.time, maxPulse.pulse);
 }
 
