@@ -18,7 +18,7 @@ void dataPulseAscendingWay(data *chain);
 void dataTimeAscendingWay(data *chain);
 void dataPulseDescendingWay(data *chain);
 void dataTimeDescendingWay(data *chain);
-void dataSpecificTime(data *chain);
+void dataSpecificTime(data *chain, int timeZero, int timeOne);
 void dataAverageInTimeRange(data *chain);
 void dataNumberGathered(data *chain);
 void dataExtremePulse(data *chain);

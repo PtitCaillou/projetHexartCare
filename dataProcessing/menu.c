@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+#include <time.h>
 #include "data.h"
 
 void menu(){
@@ -12,7 +13,7 @@ void menu(){
                                                                      "(6) Display the number of data gathered.\n"
                                                                      "(7) Display the maximum and the minimum pulse with their time.\n"
                                                                      "(8) Exit the program.\n");
-  int choice, choiceD;
+  int choice, choiceD, timeZero=0, timeOne=0;
   scanf("%d", &choice);
   switch(choice){
     case 1:
@@ -56,8 +57,16 @@ void menu(){
       break;
     case 4:
       system("cls");
-      printf("(4) Search for a specific time.\n");
-      dataSpecificTime(fileManage());
+      printf("(4) Search for a specific time.\nEnter the first time value : ");
+      scanf("%d", &timeZero);
+      system("cls");
+      printf("(4) Search for a specific time.\nThe first time value is : %d", timeZero);
+      printf("\nEnter the second time value : ");
+      scanf("%d", &timeOne);
+      system("cls");
+      printf("(4) Search for a specific time.\nThe first time value is : %d", timeZero);
+      printf("\nThe second time value is : %d\n\n", timeOne);
+      dataSpecificTime(fileManage(), timeZero, timeOne);
       break;
     case 5:
       system("cls");

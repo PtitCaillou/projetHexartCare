@@ -47,8 +47,12 @@ void dataTimeDescendingWay(data *chain){
 
 }
 
-void dataSpecificTime(data *chain){
-
+void dataSpecificTime(data *chain, int timeZero, int timeOne){
+  for(int i=1; i < SIZE; i++){
+    if(chain[i].time >= timeZero && chain[i].time <= timeOne){
+      printf("At %ld s: %ld pulse\n", chain[i].time, chain[i].pulse);
+    }
+  }
 }
 
 void dataAverageInTimeRange(data *chain){
@@ -74,7 +78,6 @@ void dataExtremePulse(data *chain){
       maxPulse.time = chain[i].time;
     }
     if(chain[i].pulse < minPulse.pulse && chain[i].pulse != 0 && chain[i].pulse != NULL){
-      //printf("%ld plus grand que %ld\n", chain[i].pulse, maxPulse.pulse);
       minPulse.num = chain[i].num;
       minPulse.pulse = chain[i].pulse;
       minPulse.time = chain[i].time;
