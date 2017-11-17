@@ -3,6 +3,8 @@
 #include <string.h>
 #include <time.h>
 #include "data.h"
+#include "processing.h"
+#include "menu.h"
 
 void menu(){
     printf("Welcome ! How would you like the data to be organized ?\n(1) In the order of the file.\n"
@@ -66,12 +68,32 @@ void menu(){
       system("cls");
       printf("(4) Search for a specific time.\nThe first time value is : %d", timeZero);
       printf("\nThe second time value is : %d\n\n", timeOne);
+      if(timeZero >= timeOne){
+        int temp = timeZero;
+        timeZero = timeOne;
+        timeOne = temp;
+      }
       dataSpecificTime(fileManage(), timeZero, timeOne);
       break;
     case 5:
       system("cls");
-      printf("(5) Calculate the average pulse in a specific time range.\n");
-      dataAverageInTimeRange(fileManage());
+      printf("(5) Calculate the average pulse in a specific time range.\nEnter the first time value : ");
+      system("cls");
+      printf("(5) Calculate the average pulse in a specific time range.\nEnter the first time value : ");
+      scanf("%d", &timeZero);
+      system("cls");
+      printf("(5) Calculate the average pulse in a specific time range.\nThe first time value is : %d", timeZero);
+      printf("\nEnter the second time value : ");
+      scanf("%d", &timeOne);
+      system("cls");
+      printf("(5) Calculate the average pulse in a specific time range.\nThe first time value is : %d", timeZero);
+      printf("\nThe second time value is : %d\n\n", timeOne);
+      if(timeZero >= timeOne){
+        int temp = timeZero;
+        timeZero = timeOne;
+        timeOne = temp;
+      }
+      dataAverageInTimeRange(fileManage(), timeZero, timeOne);
       break;
     case 6:
       system("cls");
