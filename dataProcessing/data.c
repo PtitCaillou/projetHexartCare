@@ -22,13 +22,3 @@ data *fileManage(){
   fclose(recData);
   return toProcess;
 }
-
-void dataFileOrder(data *chain){
-  for(int i=1; i<SIZE; i++){
-    if(chain[i].num != NULL){
-      printf("\tNUM : %d \t", chain[i].num);
-      printf("TIME : %ld\t", chain[i].time);
-      printf("PULSE : %ld\n", chain[i].pulse);
-    }
-  }
-}
