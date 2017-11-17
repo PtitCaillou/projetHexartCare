@@ -25,9 +25,9 @@ data *fileManage(){
           }
         }
         if(a==1){
-          toProcess[i].beat[j-(strlen(toProcess[i].time))] = fileData[j];
+          toProcess[i].pulse[j-(strlen(toProcess[i].time))] = fileData[j];
           if(fileData[j]==';'){
-            toProcess[i].beat[j-(strlen(toProcess[i].time))] = ' ';
+            toProcess[i].pulse[j-(strlen(toProcess[i].time))] = ' ';
           }
         }
       }
@@ -46,7 +46,7 @@ void dataFileOrder(data *chain){
     if(chain[i].num != NULL){
       printf("\tNUM : %d\t", chain[i].num);
       printf("TIME : %s\t", chain[i].time);
-      printf("BEAT : %s", chain[i].beat);
+      printf("PULSE : %s", chain[i].pulse);
     }
   }
 }
@@ -67,8 +67,13 @@ void dataTimeDescendingWay(data *chain){
 
 }
 
-void dataSpecificTime(data *chain){
-
+void dataSpecificTime(data *chain, int timeZero, int timeOne){
+  int i;
+  for (chain[i].time, timeZero < chain[i].time > timeOne){
+  if (timeZero < chain[i].time > timeOne) {
+    printf("%s %s", chain[i].pulse, chain[i].time);
+  }
+  }
 }
 
 void dataAverageInTimeRange(data *chain){
