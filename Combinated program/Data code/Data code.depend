@@ -1,0 +1,44 @@
+# depslib dependency file v1.0
+1511041901 source:d:\dowload\boulot\c\projethexartcare\combinated program\data code\main.c
+	<stdio.h>
+	<stdlib.h>
+	"data.h"
+	"menu.h"
+	"processing.h"
+
+1510937802 d:\dowload\boulot\c\projethexartcare\combinated program\data code\data.h
+
+1511042937 d:\dowload\boulot\c\projethexartcare\combinated program\data code\menu.h
+
+1510940018 d:\dowload\boulot\c\projethexartcare\combinated program\data code\processing.h
+
+1511042845 source:d:\dowload\boulot\c\projethexartcare\combinated program\data code\menu.c
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	<time.h>
+	"data.h"
+	"processing.h"
+	"menu.h"
+	"codeGeneration.h"
+
+1511025885 source:d:\dowload\boulot\c\projethexartcare\combinated program\data code\processing.c
+	<stdlib.h>
+	<stdio.h>
+	"data.h"
+	"processing.h"
+	"menu.h"
+
+1511042008 source:d:\dowload\boulot\c\projethexartcare\combinated program\data code\data.c
+	<stdlib.h>
+	<stdio.h>
+	"data.h"
+	"processing.h"
+	"menu.h"
+
+1511028411 d:\dowload\boulot\c\projethexartcare\combinated program\data code\codegeneration.h
+
+1511043076 source:d:\dowload\boulot\c\projethexartcare\combinated program\data code\codegeneration.c
+	"codeGeneration.h"
+	<stdio.h>
+

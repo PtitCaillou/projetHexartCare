@@ -37,4 +37,3 @@ void xprt(unsigned long result, unsigned long tim) {
   sprintf(toPrint, "%d!%ld;",form, result);
   Serial.print(toPrint);
 }
-

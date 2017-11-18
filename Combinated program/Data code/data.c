@@ -8,7 +8,7 @@
 data *fileManage(){
   int i = 1, test;
   data *toProcess = malloc(SIZE * sizeof(data));
-  FILE* recData = fopen("../M3/main/Battements.csv", "r");
+  FILE* recData = fopen("../ProcessingCode/main/Battements.csv", "r");
 
   if(recData != NULL){
      while ((test = fscanf(recData, "%ld!%ld", &(toProcess[i]).time, &(toProcess[i]).pulse)) != 0 && test != EOF) {
