@@ -9,5 +9,6 @@ struct data{
 };
 
 data *fileManage();
+data translate(char actData[10]);
 
 #endif // DATA_H_INCLUDED

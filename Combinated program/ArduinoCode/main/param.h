@@ -2,6 +2,6 @@
 #define PARAM_H_INCLUDED
 
 int numUser = 0;
-int fonction = 5;
+int fonction = 4;
 
 #endif 

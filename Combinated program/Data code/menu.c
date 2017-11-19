@@ -8,7 +8,8 @@
 #include "codeGeneration.h"
 
 void menu(){
-    printf("Welcome ! How would you like the data to be organized ?\n(1) In the order of the file.\n"
+  system("cls");
+  printf("Welcome ! How would you like the data to be organized ?\n(1) In the order of the file.\n"
                                                                      "(2) In ascending way.\n"
                                                                      "(3) In descending way.\n"
                                                                      "(4) Search for a specific time.\n"
@@ -20,7 +21,7 @@ void menu(){
   int choice, choiceD, timeZero=0, timeOne=0, error=1;
   while(error==1){
     scanf("%d", &choice);
-    if(choice>0 && choice<9){
+    if(choice>0 && choice<10){
       error=0;
     }
     else{
@@ -188,4 +189,5 @@ void displayMenuLED(){
   else{
     createParam(port , choice);
   }
+  menu();
 }
