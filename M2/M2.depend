@@ -1,0 +1,20 @@
+# depslib dependency file v1.0
+1511028743 source:d:\dowload\boulot\c\projethexartcare\m2\main.c
+	<stdio.h>
+	<stdlib.h>
+	"menu.h"
+
+1511027609 d:\dowload\boulot\c\projethexartcare\m2\menu.h
+
+1511028704 source:d:\dowload\boulot\c\projethexartcare\m2\codegeneration.c
+	"codeGeneration.h"
+	<stdio.h>
+
+1511028411 d:\dowload\boulot\c\projethexartcare\m2\codegeneration.h
+
+1511028823 source:d:\dowload\boulot\c\projethexartcare\m2\menu.c
+	<stdio.h>
+	<stdlib.h>
+	"menu.h"
+	"codeGeneration.h"
+
