@@ -10,7 +10,7 @@ data *fileManage(){
   int i = 1, test;
   char actData[10], prvData[10], *posRtn;
   data *toProcess = malloc(SIZE * sizeof(data));
-  FILE* recData = fopen("../../../ProcessingCode/main/Battements.csv", "r");
+  FILE* recData = fopen("../ProcessingCode/main/Battements.csv", "r");
 
   if(recData != NULL){
     while(fgets(actData,10,recData) != NULL){
