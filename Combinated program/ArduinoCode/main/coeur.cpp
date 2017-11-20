@@ -23,7 +23,7 @@ void led(int port, int delayis){
 
 void oneLed(int num){
   int etat;
-  etat = digitalRead(A0);
+  etat = analogRead(A0);
   if(etat>20){   
     digitalWrite (num,LOW);      
   }
