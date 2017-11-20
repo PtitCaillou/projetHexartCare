@@ -33,9 +33,11 @@ void oneLed(int num){
 }
 
 void allLED(){
-  int etat;
+  /*
+  long etat;
   etat = analogRead(A0);
-  if(etat>50){   
+  if(etat>20){  
+  */ 
     digitalWrite(2, LOW);
     digitalWrite(3,LOW);
     digitalWrite(4, LOW);
@@ -46,10 +48,12 @@ void allLED(){
     digitalWrite(9,LOW);
     digitalWrite(10, LOW);
     digitalWrite(11,LOW);
+  /*
   }
   else{
     stopit();
   }
+  */
 }
 
 void demi(){

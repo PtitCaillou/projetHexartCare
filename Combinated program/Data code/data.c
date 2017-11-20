@@ -22,10 +22,10 @@ data *fileManage(){
       else{
         strncat(prvData,actData, strlen(actData));
         toProcess[i] = translate(prvData);
-        toProcess[i].num = i;
         strcpy(prvData, "\0");
+        toProcess[i].num = i;
+        i++;
       }
-      i++;
     }
   }
   else{
