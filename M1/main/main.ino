@@ -5,9 +5,10 @@ void setup() {
 }
 
 void loop() {
-  long prvVal = 0, value=analogRead(0);
+  long prvVal = 0, value=0;
   while(true){
-    if(analogRead(0)>50){
+    value=analogRead(0);
+    if(value>50){
       gather(prvVal);
       prvVal=value;
     }

@@ -8,7 +8,7 @@ void gather(long prvVal) {
   unsigned long result;
   result = calcPulse(pulseValue, prvVal);
   xprt(result, tim);
-  delay(200);
+  delay(250);
 }
 
 unsigned long calcPulse(unsigned long actualValue, long prvVal) {

@@ -5,18 +5,20 @@
 void setup() {
   Serial.begin(9600);
   pinMode(A0,INPUT);
-  for (int i=2 ; i<12; i++){
+  for(int i=2 ; i<12; i++){
     pinMode(i, OUTPUT); 
+  }
+  for(int i=2; i<12; i++){
     digitalWrite (i,HIGH);
   }
+  allLED();
 }
 
 void loop() {
-  long prvVal=0, value;
+  long value=0;
   while(true){
     value = analogRead(0);
-    if(value>50){
-      gather(prvVal);
+    if(value>20){
       switch(fonction){
         case 1:
           allLED();
@@ -46,7 +48,9 @@ void loop() {
           xmas2();
           break;
       }
-      prvVal=value;
-    } 
+      gather();
+      delay(20);
+      stopit();
+    }
   }
 }
